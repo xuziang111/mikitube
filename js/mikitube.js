@@ -2,7 +2,7 @@ var resourceLoadFinish = false;
 var waitForPlay = false;
 var playing = false;
 var appendResourceElementLoaded;
-var urlPrefix = "https://cdn.jsdelivr.net/gh/mihirukiss/mikitube@1.0/";
+var urlPrefix = "https://cdn.jsdelivr.net/gh/mihirukiss/mikitube@1.1/";
 
 function changeToDownvote(){}
 
@@ -424,7 +424,6 @@ function checkAllAppendResourceElementLoaded(){
             return;
         }
     }
-    console.log("doPlay");
     doPlay();
     playing = true;
 }
@@ -437,18 +436,15 @@ function startPlay(overlay){
         appendResourceElementLoaded[i] = false;
         let appendResourceElement = document.getElementById(appendResourceElementIds[i]);
         appendResourceElement.addEventListener('canplaythrough', (event) => {
-            console.log(appendResourceElementIds[i]+" paucanplaythroughse event");
             appendResourceElementLoaded[i] = true;
             checkAllAppendResourceElementLoaded();
         });
         appendResourceElement.addEventListener('pause', (event) => {
-            console.log(appendResourceElementIds[i]+" pause event");
             if(appendResourceElement.readyState == 4){
                 appendResourceElementLoaded[i] = true;
                 checkAllAppendResourceElementLoaded();
             }
         });
-        console.log(appendResourceElementIds[i]+":"+appendResourceElement.readyState);
         if(appendResourceElement.readyState == 4){
             appendResourceElementLoaded[i] = true;
         } else if(appendResourceElement.readyState < 4){
@@ -462,7 +458,6 @@ function startPlay(overlay){
 }
 
 function preloadAppendResource(appendResourceElement, index){
-    console.log("preload:"+appendResourceElement.getAttribute("id"));
     let playPromise = appendResourceElement.play();
     if(playPromise != undefined){
         playPromise.then(_=>{
@@ -481,7 +476,6 @@ function pauseAppendResource(appendResourceElement, index){
     if(appendResourceElementLoaded[index]){
         return;
     }
-    console.log("pause:"+appendResourceElement.getAttribute("id"));
     let pausePromise = appendResourceElement.pause();
     if(pausePromise != undefined){
         pausePromise.then(_=>{

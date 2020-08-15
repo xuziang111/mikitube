@@ -1,6 +1,6 @@
 var resources = [
-    "https://cdn.jsdelivr.net/gh/mihirukiss/mikitube@1.0/img/player_background.webp",
-    "https://cdn.jsdelivr.net/gh/mihirukiss/mikitube@1.0/img/player_background_border.webp"
+    "img/player_background.webp",
+    "img/player_background_border.webp"
 ];
 var appendResourceElementIds = ["edBgm", "edNoMiki", "ed"];
 

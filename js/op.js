@@ -1,6 +1,6 @@
 var resources = [
-    "https://cdn.jsdelivr.net/gh/mihirukiss/mikitube@1.0/img/player_background.webp",
-    "https://cdn.jsdelivr.net/gh/mihirukiss/mikitube@1.0/img/op.webp"
+    "img/player_background.webp",
+    "img/op.webp"
 ];
 var appendResourceElementIds = ["opDelay", "opMain", "follow", "addBack"];
 
